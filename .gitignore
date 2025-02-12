@@ -1,0 +1,67 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+vendor/
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/auth.json
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+# Directorios y archivos de Laravel que no deben subirse
+/vendor/
+/node_modules/
+# Configuración de entorno
+.env
+.env.backup
+.env.local
+.env.*.backup
+# Archivos de caché y logs
+bootstrap/cache/
+storage/*.key
+storage/logs/
+storage/framework/cache/*
+storage/framework/views/*
+storage/framework/sessions/*
+# Configuración de IDEs y editores de código
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+# Archivos de dependencias y compilación
+composer.lock
+package-lock.json
+public/hot
+public/storage
+# Archivos generados por el sistema
+*.DS_Store
+*.log
+*.swp
+*.swo
+# Archivos de testing
+phpunit.xml
+phpunit.xml.cache
+coverage/
+# Salida de compilación de Tailwind y otros CSS/JS
+public/css/
+public/js/
+public/mix-manifest.json
+public/build/
+# Archivos de servicio de Laravel
+homestead.yaml
+Homestead.json
