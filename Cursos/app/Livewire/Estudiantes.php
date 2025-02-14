@@ -18,6 +18,11 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Notifications\Notification;
 
+
+/**
+ * Este es el componente de Livewire Estudiantes.
+ * Aqui se definen las acciones y propiedades del componente.
+ */
 class Estudiantes extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
@@ -31,6 +36,7 @@ class Estudiantes extends Component implements HasForms, HasTable
         return view('livewire.estudiantes');
     }
 
+     // Se define la tabla de estudiantes
     public function table(Table $table): Table
     {
         return $table
@@ -97,6 +103,7 @@ class Estudiantes extends Component implements HasForms, HasTable
             ]);
     }
 
+    // Se define el formulario de estudiantes
     public function form(Form $form): Form
     {
         return $form
@@ -123,6 +130,7 @@ class Estudiantes extends Component implements HasForms, HasTable
     }
 
 
+    // Se define la acción de guardar estudiante y se valida el formulario
     public function SaveEstudiante()
     {
         $this->validate(

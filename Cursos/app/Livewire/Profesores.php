@@ -18,6 +18,10 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Notifications\Notification;
 
+/**
+ * Este es el componente de Livewire Profesores.
+ * Aqui se definen las acciones y propiedades del componente.
+ */
 class Profesores extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
@@ -31,6 +35,7 @@ class Profesores extends Component implements HasForms, HasTable
         return view('livewire.profesores');
     }
 
+    // Se define la tabla de profesores
     public function table(Table $table): Table
     {
         return $table
@@ -116,6 +121,7 @@ class Profesores extends Component implements HasForms, HasTable
     }
 
 
+    // Se define la acción de guardar maestros y se valida el formulario
     public function SaveProfesor()
     {
         $this->validate(

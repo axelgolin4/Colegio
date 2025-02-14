@@ -20,6 +20,10 @@ use Filament\Tables\Table;
 use Filament\Notifications\Notification;
 use Filament\Forms\Components\Select;
 
+/**
+ * Este es el componente de Livewire Curso.
+ * Aqui se definen las acciones y propiedades del componente.
+ */
 class Curso extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
@@ -35,6 +39,7 @@ class Curso extends Component implements HasForms, HasTable
         return view('livewire.curso');
     }
 
+    // Se define la tabla de cursos
     public function table(Table $table): Table
     {
         return $table
@@ -71,6 +76,7 @@ class Curso extends Component implements HasForms, HasTable
 
                 EditAction::make()
                     ->record(function (ModelsCurso $curso) {
+                        
                         return $curso;
                     })
                     ->successNotification(
@@ -93,7 +99,7 @@ class Curso extends Component implements HasForms, HasTable
                             ->integer()
                             ->required(),
 
-                        Select::make('profesor')
+                        Select::make('profesor_id')
                             ->label('Maestro')
                             ->options(Profesor::all()->pluck('nombre', 'id'))
                             ->searchable(),
@@ -104,6 +110,7 @@ class Curso extends Component implements HasForms, HasTable
             ]);
     }
 
+    // Se define el formulario de cursos
     public function form(Form $form): Form
     {
         return $form
@@ -139,6 +146,7 @@ class Curso extends Component implements HasForms, HasTable
         $this->dispatch('close-modal', id: 'modal-curso');
     }
 
+    // Se define la acción de guardar un curso en la base de datos
     public function SaveCurso()
     {
 

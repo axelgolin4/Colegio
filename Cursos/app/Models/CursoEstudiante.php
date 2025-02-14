@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Curso;
 
-
+/**
+ * Este es el modelo de CursoEstudiante.
+ * Aqui se definen las relaciones y atributos del modelo.
+ */
 class CursoEstudiante extends Model
 {
     use HasFactory;

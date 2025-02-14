@@ -91,3 +91,10 @@ php artisan serve
 npm run dev
 ```
 
+![Imagen1](../Imagenes/img7.PNG)
+![Imagen1](../Imagenes/img1.PNG)
+![Imagen1](../Imagenes/img2.PNG)
+![Imagen1](../Imagenes/img3.PNG)
+![Imagen1](../Imagenes/img4.PNG)
+![Imagen1](../Imagenes/img5.PNG)
+![Imagen1](../Imagenes/img6.PNG)

@@ -6,6 +6,11 @@ use App\Livewire\Curso;
 use App\Livewire\EstudianteCursos;
 use App\Livewire\Profesores;
 
+/**
+ * Aqui se definen las rutas de la aplicación.
+ * Se definen las rutas y se asocian a un componente de Livewire.
+ */
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');

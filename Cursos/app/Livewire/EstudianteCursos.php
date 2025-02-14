@@ -18,6 +18,10 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Notifications\Notification;
 
+/**
+ * Este es el componente de Livewire EstudianteCursos.
+ * Aqui se definen las acciones y propiedades del componente.
+ */
 class EstudianteCursos extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
@@ -36,6 +40,7 @@ class EstudianteCursos extends Component implements HasForms, HasTable
         $this->estudiante = Estudiante::find($estudiante);
     }
 
+    // Se define el formulario de estudiante-cursos
     public function form(Form $form): Form
     {
         return $form
@@ -57,10 +62,11 @@ class EstudianteCursos extends Component implements HasForms, HasTable
         $this->dispatch('close-modal', id: 'modal-estudiante-curso');
     }
 
+    // Se define la tabla de estudiante-cursos
     public function table(Table $table): Table
     {
         return $table
-            ->query(CursoEstudiante::query())
+            ->query(CursoEstudiante::query()->where('estudiante_id', $this->estudiante->id))
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
@@ -99,6 +105,7 @@ class EstudianteCursos extends Component implements HasForms, HasTable
             ]);
     }
 
+     // Se define la acción de guardar curso-estudiante en la tabla de estudiante-cursos 
     public function SaveCursoEstudiante()
     {
         $this->validate([
