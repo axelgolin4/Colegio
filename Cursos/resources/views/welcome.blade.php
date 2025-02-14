@@ -23,8 +23,10 @@
                 <div class="hidden lg:flex lg:gap-x-12">
                     @foreach([
                         ['route' => 'home', 'icon' => 'heroicon-o-home', 'label' => 'Home'],
+                        ['route' => 'profesores', 'icon' => 'heroicon-o-academic-cap', 'label' => 'Maestros'],
                         ['route' => 'cursos', 'icon' => 'heroicon-o-book-open', 'label' => 'Cursos'],
                         ['route' => 'estudiantes', 'icon' => 'heroicon-o-users', 'label' => 'Estudiantes'],
+                       
                     ] as $item)
                         <div class="flex items-center gap-2 text-gray-900 hover:text-blue-500">
                             <x-dynamic-component :component="$item['icon']" class="w-4 h-4" />

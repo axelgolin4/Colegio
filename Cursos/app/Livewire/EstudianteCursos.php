@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Curso;
 use App\Models\Estudiante;
 use App\Models\CursoEstudiante;
+use App\Tables\Columns\ProfesorColumn;
 use Livewire\Component;
 use Filament\Forms\Form;
 use Filament\Tables\Actions\DeleteAction;
@@ -73,6 +74,11 @@ class EstudianteCursos extends Component implements HasForms, HasTable
 
                 TextColumn::make('curso.descripcion')
                     ->label('Descripción')
+                    ->searchable()
+                    ->sortable(),
+
+                ProfesorColumn::make('curso.profesor')
+                    ->label('Maestro')
                     ->searchable()
                     ->sortable(),
 

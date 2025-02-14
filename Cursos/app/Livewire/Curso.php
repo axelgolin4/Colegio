@@ -3,6 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Curso as ModelsCurso;
+use App\Models\Profesor;
+use App\Tables\Columns\ProfesorColumn;
 use Livewire\Component;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -12,9 +14,11 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\EditAction;
+use Filament\Support\Enums\Alignment;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Notifications\Notification;
+use Filament\Forms\Components\Select;
 
 class Curso extends Component implements HasForms, HasTable
 {
@@ -24,6 +28,7 @@ class Curso extends Component implements HasForms, HasTable
     public $nombre = '';
     public $descripcion = '';
     public $creditos = '';
+    public $profesor = '';
 
     public function render()
     {
@@ -44,6 +49,10 @@ class Curso extends Component implements HasForms, HasTable
                     ->label('Descripción')
                     ->searchable()
                     ->sortable(),
+
+                ProfesorColumn::make('profesor')
+                    ->alignment(Alignment::Center)
+                    ->label('Maestro'),
 
                 TextColumn::make('creditos')
                     ->label('Créditos'),
@@ -84,7 +93,10 @@ class Curso extends Component implements HasForms, HasTable
                             ->integer()
                             ->required(),
 
-
+                        Select::make('profesor')
+                            ->label('Maestro')
+                            ->options(Profesor::all()->pluck('nombre', 'id'))
+                            ->searchable(),
                     ]),
             ])
             ->bulkActions([
@@ -108,6 +120,11 @@ class Curso extends Component implements HasForms, HasTable
                     ->label('Creditos')
                     ->integer()
                     ->required(),
+
+                Select::make('profesor')
+                    ->label('Maestro')
+                    ->options(Profesor::all()->pluck('nombre', 'id'))
+                    ->searchable(),
             ]);
     }
 
@@ -130,11 +147,13 @@ class Curso extends Component implements HasForms, HasTable
                 'nombre' => 'required',
                 'descripcion' => 'required',
                 'creditos' => 'required',
+                'profesor' => 'required',
             ],
             [
                 'nombre.required' => 'El campo nombre es requerido',
                 'descripcion.required' => 'El campo descripción es requerido',
                 'creditos.required' => 'El campo créditos es requerido',
+                'profesor.required' => 'El campo maestro es requerido',
             ]
         );
 
@@ -142,6 +161,7 @@ class Curso extends Component implements HasForms, HasTable
             'nombre' => $this->nombre,
             'descripcion' => $this->descripcion,
             'creditos' => $this->creditos,
+            'profesor_id' => $this->profesor,
         ]);
         $this->nombre = '';
 

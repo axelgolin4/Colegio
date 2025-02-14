@@ -4,9 +4,9 @@
     <div class="min-h-screen bg-gray-100 flex flex-col items-center py-10 pt-20">
         <div class="bg-white p-8 shadow-lg rounded-lg w-[80%] h-full">
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-900">Estudiantes</h1>
+                <h1 class="text-2xl font-bold text-gray-900">Maestro</h1>
                 <button wire:click="ShowModal" class="px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow">
-                    Crear Nuevo Estudiante
+                    Crear Nuevo Maestro
                 </button>
             </div>
 
@@ -15,13 +15,13 @@
             </div>
         </div>
 
-        <x-filament::modal id="modal-estudiante" alignment="center" width="lg">
+        <x-filament::modal id="modal-profesor" alignment="center" width="lg">
             <x-slot name="heading">
-                <h2 class="text-2xl font-semibold text-gray-900">Estudiante Nuevo</h2>
+                <h2 class="text-2xl font-semibold text-gray-900">Maestro Nuevo</h2>
             </x-slot>
 
             <x-slot name="description">
-                <p class="text-sm text-gray-600">Crear un estudiante nuevo desde aquí, completa los detalles a continuación.</p>
+                <p class="text-sm text-gray-600">Crear un maestro nuevo desde aquí, completa los detalles a continuación.</p>
             </x-slot>
 
             <div class="mt-4 space-y-4">
@@ -43,7 +43,7 @@
                     <button wire:click="CloseModal" class="px-4 py-2 text-gray-700 bg-gray-300 hover:bg-gray-400 rounded-md shadow-sm">
                         Cancelar
                     </button>
-                    <button wire:click="SaveEstudiante" class="px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <button wire:click="SaveProfesor" class="px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400">
                         Guardar
                     </button>
                 </div>
