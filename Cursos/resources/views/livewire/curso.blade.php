@@ -1,5 +1,5 @@
 <div>
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-4" aria-label="Global">
+    <nav class="fixed top-0 left-0 w-full z-1 bg-white shadow-md flex items-center justify-between p-4" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="{{ route('home') }}" class="-m-1.5 p-1.5">
                 <img class="h-8 w-auto" src="{{ asset('img/logo_orbe.png') }}" alt="Logo Orbe">
@@ -19,7 +19,7 @@
         </div>
     </nav>
 
-    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-gray-100 flex flex-col items-center py-10 pt-20 w-full">
         <div class="bg-white p-8 shadow-lg rounded-lg w-[80%] h-full">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold text-gray-900">Cursos</h1>

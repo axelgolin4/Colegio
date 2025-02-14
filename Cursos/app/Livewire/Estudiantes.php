@@ -15,6 +15,7 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\Action;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Notifications\Notification;
 
 class Estudiantes extends Component implements HasForms, HasTable
@@ -35,6 +36,11 @@ class Estudiantes extends Component implements HasForms, HasTable
         return $table
             ->query(Estudiante::query())
             ->columns([
+
+                ImageColumn::make('avatar')
+                    ->circular()
+                    ->label('Avatar'),
+
                 TextColumn::make('nombre')
                     ->label('Nombre')
                     ->searchable()
@@ -79,7 +85,7 @@ class Estudiantes extends Component implements HasForms, HasTable
                     ]),
 
                 Action::make('curso')
-                    ->label('Curso')
+                    ->label('Cursos')
                     ->icon('heroicon-o-book-open')
                     ->color('info')
                     ->url(function (Estudiante $estudiante) {
@@ -138,7 +144,7 @@ class Estudiantes extends Component implements HasForms, HasTable
         $this->nombre = '';
 
         Notification::make()
-            ->title('Saved successfully')
+            ->title('Estudiante Creado')
             ->success()
             ->send();
 

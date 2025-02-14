@@ -22,6 +22,8 @@ class Curso extends Component implements HasForms, HasTable
     use InteractsWithTable;
 
     public $nombre = '';
+    public $descripcion = '';
+    public $creditos = '';
 
     public function render()
     {
@@ -34,9 +36,17 @@ class Curso extends Component implements HasForms, HasTable
             ->query(ModelsCurso::query())
             ->columns([
                 TextColumn::make('nombre')
-                    ->label('Nombre del Curso')
+                    ->label('Nombre')
                     ->searchable()
                     ->sortable(),
+
+                TextColumn::make('descripcion')
+                    ->label('Descripción')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('creditos')
+                    ->label('Créditos'),
 
                 TextColumn::make('created_at')
                     ->label('Fecha de Creación')
@@ -62,8 +72,19 @@ class Curso extends Component implements HasForms, HasTable
                     )
                     ->form([
                         TextInput::make('nombre')
-                            ->required()
-                            ->maxLength(255),
+                            ->label('Nombre')
+                            ->required(),
+
+                        TextInput::make('descripcion')
+                            ->label('Descripción')
+                            ->required(),
+
+                        TextInput::make('creditos')
+                            ->label('Creditos')
+                            ->integer()
+                            ->required(),
+
+
                     ]),
             ])
             ->bulkActions([
@@ -76,7 +97,16 @@ class Curso extends Component implements HasForms, HasTable
         return $form
             ->schema([
                 TextInput::make('nombre')
-                    ->label('Nombre del Curso')
+                    ->label('Nombre')
+                    ->required(),
+
+                TextInput::make('descripcion')
+                    ->label('Descripción')
+                    ->required(),
+
+                TextInput::make('creditos')
+                    ->label('Creditos')
+                    ->integer()
                     ->required(),
             ]);
     }
@@ -95,21 +125,31 @@ class Curso extends Component implements HasForms, HasTable
     public function SaveCurso()
     {
 
-        $this->validate([
-            'nombre' => 'required',
-        ],
-        [
-            'nombre.required' => 'El campo nombre es requerido',
-        ]);
+        $this->validate(
+            [
+                'nombre' => 'required',
+                'descripcion' => 'required',
+                'creditos' => 'required',
+            ],
+            [
+                'nombre.required' => 'El campo nombre es requerido',
+                'descripcion.required' => 'El campo descripción es requerido',
+                'creditos.required' => 'El campo créditos es requerido',
+            ]
+        );
 
         ModelsCurso::create([
             'nombre' => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'creditos' => $this->creditos,
         ]);
         $this->nombre = '';
 
         Notification::make()
-            ->title('Saved successfully')
+            ->title('Curso Agregado')
             ->success()
             ->send();
+
+        $this->dispatch('close-modal', id: 'modal-curso');
     }
 }

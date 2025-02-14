@@ -13,6 +13,8 @@ class CursoEstudiante extends Model
 
     protected $fillable = ['curso_id', 'estudiante_id'];
 
+    protected $table = 'curso_estudiante';
+
     public function curso()
     {
         return $this->belongsTo(Curso::class);
