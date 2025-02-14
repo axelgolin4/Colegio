@@ -4,7 +4,10 @@
     <div class="min-h-screen bg-gray-100 flex flex-col items-center py-10 pt-20">
         <div class="bg-white p-8 shadow-lg rounded-lg w-[80%] h-full">
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-900">Maestro</h1>
+                <div class="flex items-center gap-2">
+                    <x-heroicon-o-academic-cap class="w-7 h-7text-gray-900" alt="email icon" />
+                    <h1 class="text-2xl font-bold text-gray-900">Maestro</h1>
+                </div>
                 <button wire:click="ShowModal" class="px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow">
                     Crear Nuevo Maestro
                 </button>
